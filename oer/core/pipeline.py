@@ -18,4 +18,4 @@ class Pipeline:
         sentence = self.nlp.parse_seged(words_netag)
         if verbose:
             print(sentence.to_string())
-        return Extractor.extract(string, sentence, verbose=verbose)
+        return Extractor.extract(string, sentence, more_common=more_common, verbose=verbose)

@@ -31,6 +31,7 @@ class EntityCombine:
                         newword += words[j].lemma
                     elif 'E-' in netags[j]:
                         newword += words[j].lemma
+                        j += 1
                         break
                     elif 'O' == netags[j] or (j + 1) == length:
                         break

@@ -15,7 +15,7 @@ class Extractor:
             origin_sentence: string，原始句子
             sentence: SentenceUnit，句子单元
         """
-        entities = cls.get_entities(sentence, more_common=True)
+        entities = cls.get_entities(sentence, more_common=more_common)
         entity_pairs = cls.get_entity_pairs(entities, sentence)
         results = []
         for entity_pair in entity_pairs:
@@ -45,7 +45,10 @@ class Extractor:
             obj = extract_dsnf.entity_de_entity_NNT(entity1, entity2)
             if obj:
                 results.append(obj)
-        return results
+        return {
+            "sentence": origin_sentence,
+            "knowledge": results
+        }
 
     @classmethod
     def get_entities(cls, sentence, more_common=True):
@@ -57,7 +60,7 @@ class Extractor:
         """
         entities = []
         for word in sentence.words:
-            if cls.is_entity(word, more_common=True):
+            if cls.is_entity(word, more_common=more_common):
                 entities.append(word)
         return entities
 
@@ -97,9 +100,9 @@ class Extractor:
             n：一般名词
             nl：一般地名，如“城郊”、“国内”
         """
-        entity_postags = {'nh', 'ni', 'ns', 'nz', 'j', 'nl'}
+        entity_postags = {'nh', 'ni', 'ns', 'nz', 'j'}
         if more_common:
-            entity_postags.add('n')
+            entity_postags.update({'n', 'nl'})
         if entry.postag in entity_postags:
             return True
         else:

@@ -41,10 +41,12 @@ def predict_file(input_path, output_path):
 
 
 if __name__ == '__main__':
-    input_path = 'data/input_text.txt'  # 输入的文本文件
-    output_path = 'data/knowledge_triple.json'  # 输出的处理结果Json文件
-    predict_file(input_path, output_path)
+    # input_path = 'data/input_text.txt'  # 输入的文本文件
+    # output_path = 'data/knowledge_triple.json'  # 输出的处理结果Json文件
+    # predict_file(input_path, output_path)
 
     pipeline = Pipeline()
-    results = pipeline.predict("高克访问中国。")
+    results = pipeline.predict("高克访问中国，并在同济大学发表演讲。", more_common=False, verbose=False)
+    print(results)
+    results = pipeline.predict("奥巴马毕业于哈佛大学。", more_common=False, verbose=False)
     print(results)

@@ -99,12 +99,13 @@ class ExtractByDSNF:
         Returns:
             True: 获得三元组(True)
         """
-        triple = dict()
-        triple['sentence'] = self.origin_sentence
+        # triple = dict()
+        # triple['sentence'] = self.origin_sentence
         entity1_str = self.element_connect(entity1)
         entity2_str = self.element_connect(entity2)
         relation_str = self.element_connect(relation)
-        triple['knowledge'] = [entity1_str, relation_str, entity2_str]
+        # triple['knowledge'] = [entity1_str, relation_str, entity2_str]
+        triple = [entity1_str, relation_str, entity2_str]
         if self.file_path:
             AppendToJson().append(self.file_path, triple)
         if self.verbose:

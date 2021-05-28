@@ -34,17 +34,20 @@ knowledge_extraction/
 
 ## Requirements
 
-This repo was tested on Python 3.5+. The requirements are:
+This repo was tested on Python 3.6+. The requirements are:
 
-Python>=3.6
-- torch==1.7.1
-- transformers==4.6.1
-- ltp==4.1.4.post1
+- Python>=3.6
+  - torch==1.7.1
+  - transformers==4.6.1
+  - ltp==4.1.4.post1
 
 ## Quickstart
 
 ```bash
 $ python run.py
+
+{'sentence': '高克访问中国，并在同济大学发表演讲。', 'knowledge': [['高克', '访问', '中国'], ['高克', '发表演讲', '同济大学']]}
+{'sentence': '奥巴马毕业于哈佛大学。', 'knowledge': [['奥巴马', '毕业于', '哈佛大学']]}
 ```
 
 ## Seven DSNF paradigms
