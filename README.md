@@ -1,4 +1,4 @@
-# open-entity-relation-extraction
+# Open Knowledge Extraction
 
 Knowledge triples extraction (entities and relations extraction) and knowledge base construction based on dependency syntax for open domain text.
 
